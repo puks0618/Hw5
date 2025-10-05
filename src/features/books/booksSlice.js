@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-const API_BASE = 'http://localhost:8000'
+// Allow overriding the API base from Vite env (e.g., .env with VITE_API_BASE)
+const API_BASE = import.meta?.env?.VITE_API_BASE || 'http://localhost:8000'
 
 const makeErr = (err) => ({ message: err.message, status: err.response?.status ?? null, data: err.response?.data ?? null })
 
